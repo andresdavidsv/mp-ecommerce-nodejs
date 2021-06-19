@@ -8,7 +8,7 @@ const bodyparser = require('body-parser');
 let app = express();
 
 mercadopago.configure({
-  access_token: 'APP_USR-2572771298846850-120119-a50dbddca35ac9b7e15118d47b111b5a-681067803',
+  access_token: 'TEST-8806440895344284-061900-a8814b800966b8845d3fe7002ca36c1a-169130918',
   integrator_id : 'dev_24c65fb163bf11ea96500242ac130004'
 })
 
