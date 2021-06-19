@@ -115,7 +115,7 @@ app.post('/webhook', function (req, res) {
       });
       req.on("end", () => {
           console.log("webhook response", body);
-          res.end("ok");
+          res.end(body);
       });
   }
   return res.status(200);
