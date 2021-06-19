@@ -86,9 +86,7 @@ app.post('/checkout', function (req, res) {
           // Este valor reemplazará el string "<%= global.id %>" en tu HTML
           global.id = response.body.id;
 
-          //console.log(response);
           console.log("Preferences id -> "+response.body.id);
-
           res.redirect(response.body.init_point);
 
       }).catch(function (error) {
@@ -108,11 +106,7 @@ app.get('/pending', function (req, res) {
 
 app.post('/webhook', function (req, res) {
   console.log('received webhook update');
-  var id = req.body.action;
 
-  //console.log("Esta es la ID "+id);
-  //console.log(req.body);
-  console.log("Empieza el stringify");
   console.log(JSON.stringify(req.body,null,2));
   if(req.method==='POST'){
       let body = "";
