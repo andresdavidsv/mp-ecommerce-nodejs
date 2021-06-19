@@ -92,6 +92,17 @@ app.post('/checkout', function (req, res) {
       }).catch(function (error) {
       console.log(error);
   });
+
+  if(req.method==='POST'){
+    let body = "";
+    req.on("data", chunk => {
+        body += chunk.toString();
+    });
+    req.on("end", () => {
+        console.log("webhook response", body);
+        res.end("ok");
+    });
+}
 });
 
 app.get('/success', function (req, res) {
