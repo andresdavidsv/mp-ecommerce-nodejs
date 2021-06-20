@@ -106,17 +106,10 @@ app.get('/pending', function (req, res) {
   res.render('pending', req.query);
 });
 
-app.post('/webhook', function (req, res) {
-    let body = ""; 
-    req.on("data", chunk => {  
-    body += chunk.toString();
-    });
-    req.on("end", () => {  
-    console.log(body, "webhook response"); 
-    res.end("ok");
-    });
-    return res.status(200);
-});
+app.post('/webhooks', function (req, res) {
+    console.log('webhook', req.body)
+    res.send(req.body)
+})
 
 
 app.listen(port, function () {
