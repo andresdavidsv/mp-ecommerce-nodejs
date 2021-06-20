@@ -79,7 +79,7 @@ app.post('/checkout', function (req, res) {
           pending: "https://andresdavi-mp-ecommerce-nodejs.herokuapp.com/pending"
       },
       notification_url: "https://andresdavi-mp-ecommerce-nodejs.herokuapp.com/webhook",
-      auto_return: "approved"
+    //   auto_return: "approved"
   };
   mercadopago.preferences.create(preferences)
       .then(function (response) {
@@ -108,7 +108,7 @@ app.get('/pending', function (req, res) {
 
 app.post('/webhook', function (req, res) {
     console.log(req);
-  console.log(res);
+    console.log(res);
     let body = ""; 
     req.on("data", chunk => {  
     body += chunk.toString();
