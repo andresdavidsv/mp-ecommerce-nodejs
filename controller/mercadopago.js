@@ -55,7 +55,7 @@ mercadoCheckout.creteReference = async (req, res) => {
             failure: "https://andresdavi-mp-ecommerce-nodejs.herokuapp.com/failure",
             pending: "https://andresdavi-mp-ecommerce-nodejs.herokuapp.com/pending"
         },
-        notification_url: 'https://webhook.site/6cbb5ec2-c0ff-4632-a8bd-94ef15a3f87c',
+        notification_url: 'https://andresdavi-mp-ecommerce-nodejs.herokuapp.com/webhook',
         auto_return: "approved"
     };
 
