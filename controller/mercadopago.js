@@ -13,12 +13,12 @@ mercadoCheckout.creteReference = async (req, res) => {
         items: [
             {
                 id: 1234,
-                title: body.title,
+                title: req.body.title,
                 description: 'DispositivomóvildeTiendae-commerce',
-                picture_url: 'https://aldairl-mp-ecommerce-nodejs.herokuapp.com/assets/003.jpg',
-                quantity: Number(body.unit),
+                picture_url: req.body.img,
+                quantity: Number(req.body.unit),
                 currency_id: 'COP',
-                unit_price: Number(body.price)
+                unit_price: Number(req.body.price)
             }
         ],
         payer: {
