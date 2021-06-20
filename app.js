@@ -40,12 +40,12 @@ app.post('/checkout', function (req, res) {
           quantity: parseInt(req.body.unit),
           unit_price: parseFloat(req.body.price),
           category_id: 'phones',
-          currency_id: 'COP'
+          currency_id: 'COP',
+          external_reference: "andresdavidsolartevidal@gmail.com",
       }
   ];
   const preferences = {
       items,
-      external_reference: "andresdavidsolartevidal@gmail.com",
       payer: {
           name: "Lalo",
           surname: "Landa",
@@ -106,10 +106,19 @@ app.get('/pending', function (req, res) {
   res.render('pending', req.query);
 });
 
-app.post('/webhooks', function (req, res) {
-    console.log('webhook', req.body)
-    res.send(req.body)
-})
+app.post('/webhook', function (req, res) {
+    console.log(req);
+  console.log(res);
+    let body = ""; 
+    req.on("data", chunk => {  
+    body += chunk.toString();
+    });
+    req.on("end", () => {  
+    console.log(body, "webhook response"); 
+    res.end("ok",body);
+    });
+    return res.status(200);
+});
 
 
 app.listen(port, function () {
