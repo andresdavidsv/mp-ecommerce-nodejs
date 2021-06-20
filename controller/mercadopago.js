@@ -14,11 +14,12 @@ mercadoCheckout.creteReference = async (req, res) => {
             {
                 id: 1234,
                 title: body.title,
-                description: 'DispositivomóvildeTiendae-commerce',
+                description: "Dispositivo móvil de Tienda e-commerce",
                 picture_url: body.img,
-                quantity: Number(body.unit),
-                currency_id: 'COP',
-                unit_price: Number(body.price)
+                quantity: parseInt(body.unit),
+                unit_price: parseFloat(body.price),
+                category_id: 'phones',
+                currency_id: 'COP'
             }
         ],
         payer: {
@@ -39,15 +40,11 @@ mercadoCheckout.creteReference = async (req, res) => {
         external_reference: "andresdavidsolartevidal@gmail.com",
         payment_methods: {
             excluded_payment_methods: [
-            ],
-            excluded_payment_types: [
                 {
                     id: "amex"
-                },
-                {
-                    id: "atm"
                 }
             ],
+            excluded_payment_types: [{ id: "atm" }],
             installments: 6
         },
         back_urls: {
@@ -55,7 +52,7 @@ mercadoCheckout.creteReference = async (req, res) => {
             failure: "https://andresdavi-mp-ecommerce-nodejs.herokuapp.com/failure",
             pending: "https://andresdavi-mp-ecommerce-nodejs.herokuapp.com/pending"
         },
-        notification_url: 'https://andresdavi-mp-ecommerce-nodejs.herokuapp.com/webhook',
+        notification_url: 'https://webhook.site/6cbb5ec2-c0ff-4632-a8bd-94ef15a3f87c',
         auto_return: "approved"
     };
 
