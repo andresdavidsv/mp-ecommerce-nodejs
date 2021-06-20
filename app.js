@@ -87,6 +87,7 @@ app.post('/checkout', function (req, res) {
           global.id = response.body.id;
 
           console.log("Preferences id -> "+response.body.id);
+          console.log(response);
 
           res.redirect(response.body.init_point);
 
@@ -106,21 +107,15 @@ app.get('/pending', function (req, res) {
 });
 
 app.post('/webhook', function (req, res) {
-  console.log('received webhook update');
-  var id = req.body.action;
-
-  console.log(JSON.stringify(req.body,null,2));
-  if(req.method==='POST'){
-      let body = "";
-      req.on("data", chunk => {
-          body += chunk.toString();
-      });
-      req.on("end", () => {
-          console.log("webhook response", body);
-          res.end("ok");
-      });
-  }
-  return res.status(200);
+    let body = ""; 
+    req.on("data", chunk => {  
+    body += chunk.toString();
+    });
+    req.on("end", () => {  
+    console.log(body, "webhook response"); 
+    res.end("ok");
+    });
+    return res.status(200);
 });
 
 
